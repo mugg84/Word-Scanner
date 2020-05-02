@@ -1,0 +1,102 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+}
+
+body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 2rem;
+        color: #000;
+}
+
+header {
+        height: 15vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+
+}
+
+main {
+        height: 70vh;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        background-image: url(/resources/Pic/maldives-1993704_1920.jpg);
+        background-size: cover;
+}
+
+h1 {
+        padding: 2vh;
+}
+
+form {
+        display: flex;
+        padding: 2vh;
+}
+
+input {
+        font-size: 1rem;
+        box-shadow: 5px 5px 5px #88888888;
+        border-radius: 10px 0 0 10px;
+}
+
+button {
+        padding: 0.5rem;
+        width: auto;
+        border: none;
+        color: #FBFBFB;
+        background: linear-gradient(rgb(255, 0, 0), rgb(185, 0, 30));
+        font-size: 1.2rem;
+        border-radius: 0 10px 10px 0;
+        box-shadow: 5px 5px 5px #88888888;
+        text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+        background: linear-gradient(rgb(215, 0, 0), rgb(145, 0, 30));
+}
+
+button:active {
+        box-shadow: 0 1px #666;
+        transform: translateY(1px);
+}
+
+.button a {
+        color: #FBFBFB;
+}
+
+.container {
+        display: flex;
+        flex-flow: column;
+}
+
+#destination {
+        display: flex;
+        justify-content: center;
+}
+
+.sectiontitle {
+        display: flex;
+        justify-content: center;
+}
+
+.weather {
+        display: flex;
+        align-items: center;
+        flex-flow: column;
+}
+
+#venues {
+        display: flex;
+        justify-content: center;
+}
+
+.venue {
+        width: 33.3%;
+}
