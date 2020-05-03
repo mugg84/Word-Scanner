@@ -71,16 +71,20 @@ const getPhoto = async (venueId) => {
 
 // Render functions
 const renderVenues = (venues) => {
+
         $venueDivs.forEach(($venue, index) => {
                 const venue = venues[index];
 
-                let venueContent = createVenueHTML(venue.name, venue.location);
-                $venue.append(venueContent);
-
+                // Get photo
                 getPhoto(venue.id).
                 then(photo => {
+                        // Render photo
                         let photoContent = addPic(photo);
                         $venue.append(photoContent);
+                        //render venues
+                        let venueContent = createVenueHTML(venue.name, venue.location);
+                        $venue.append(venueContent);
+
                 });
 
         });
