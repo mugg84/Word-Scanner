@@ -79,7 +79,9 @@ const renderVenues = (venues) => {
                 getPhoto(venue.id).
                 then(photo => {
                         // Render photo
-                        let photoContent = addPic(photo);
+                        let photoContent = `<div class="picArea">
+                        ${addPic(photo)}
+                        </div>`;
                         $venue.append(photoContent);
                         //render venues
                         let venueContent = createVenueHTML(venue.name, venue.location);

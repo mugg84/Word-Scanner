@@ -5,7 +5,10 @@
 }
 
 body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: 'Segoe UI',
+                Tahoma,
+                Verdana,
+                sans-serif;
         font-weight: 400;
         font-size: 1rem;
         line-height: 2rem;
@@ -109,18 +112,31 @@ button:active {
         padding: 2rem;
         background-color: #FBFBFB;
         border-radius: 2rem;
+        box-shadow: 0.5rem 0.5rem 0.5rem #888;
 }
 
 #venues {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
 }
 
 .venue {
+        display: flex;
+        flex-direction: column;
         width: 30%;
         padding: 2rem;
         background-color: #FBFBFB;
         border-radius: 2rem;
+        box-shadow: 0.5rem 0.5rem 0.5rem #888;
+}
+
+.picArea {
+        text-align: center;
+}
+
+.venueimage {
+        width: 35%;
+        border-radius: 1rem;
 }
 
 footer {

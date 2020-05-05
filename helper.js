@@ -1,4 +1,4 @@
-const createVenueHTML = (name, location, iconSource) => {
+const createVenueHTML = (name, location) => {
         return `<h2>${name}</h2> 
   <h3>Address:</h3>
   <p>${location.address}</p>
