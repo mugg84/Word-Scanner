@@ -7,7 +7,16 @@ const createVenueHTML = (name, location) => {
 }
 
 const addPic = pic => {
-        return `<img class="venueimage" src="${pic}"/>`
+        return `<div class="picArea">
+                <img class="venueimage" src="${pic}"/>
+                </div>`
+}
+
+const addTip = (name, tip) => {
+        return `<div class="tip">
+        <h4>${name} says:</h4>
+        <p>${tip}</p>
+        </div>`
 }
 
 const createWeatherHTML = (currentDay) => {

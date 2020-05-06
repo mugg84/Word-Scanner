@@ -2,7 +2,7 @@
 const clientId = 'TMZ5DJM4I2VQDY4B5GRKA4CFN2VGYQUFE2OWJCR3JOYYEX4W';
 const clientSecret = '1G2A3NT2THTINTOZQXTEOR3DHQ3B3PCN22QTSF1GIDQXTBTM';
 const url = 'https://api.foursquare.com/v2/venues/explore?near=';
-const photoUrl = 'https://api.foursquare.com/v2/venues/';
+const secondUrl = 'https://api.foursquare.com/v2/venues/';
 
 
 // OpenWeather Info
@@ -51,7 +51,7 @@ const getForecast = async () => {
 }
 
 const getPhoto = async (venueId) => {
-        const urlToFetch = `${photoUrl}${venueId}/photos?&limit=1&client_id=${clientId}&client_secret=${clientSecret}&v=20200501`;
+        const urlToFetch = `${secondUrl}${venueId}/photos?&limit=1&client_id=${clientId}&client_secret=${clientSecret}&v=20200501`;
         try {
                 const response = await fetch(urlToFetch);
                 if (response.ok) {
@@ -68,6 +68,25 @@ const getPhoto = async (venueId) => {
         }
 }
 
+const getTips = async (venueId) => {
+        const urlToFetch = `${secondUrl}${venueId}/tips?&limit=1&client_id=${clientId}&client_secret=${clientSecret}&v=20200501`;
+        try {
+                const response = await fetch(urlToFetch);
+                if (response.ok) {
+                        const jsonResponse = await response.json();
+                        const tipRoot = jsonResponse.response.tips.items[0];
+                        const name = `${tipRoot.user.firstName} ${tipRoot.user.lastName}`;
+                        const tip = `${tipRoot.text}`;
+                        return [name, tip];
+                } else {
+                        throw new Error('request failed');
+                }
+
+        } catch (error) {
+                console.log(error);
+        }
+}
+
 
 // Render functions
 const renderVenues = (venues) => {
@@ -76,18 +95,28 @@ const renderVenues = (venues) => {
                 const venue = venues[index];
 
                 // Get photo
+
                 getPhoto(venue.id).
                 then(photo => {
                         // Render photo
-                        let photoContent = `<div class="picArea">
-                        ${addPic(photo)}
-                        </div>`;
+                        let photoContent = addPic(photo);
                         $venue.append(photoContent);
+
                         //render venues
                         let venueContent = createVenueHTML(venue.name, venue.location);
                         $venue.append(venueContent);
 
                 });
+
+                getTips(venue.id)
+                        .then(tip => {
+                                //Render tip
+                                let tipContent = addTip(...tip);
+                                $venue.append(tipContent);
+
+                        })
+
+
 
         });
         $destination.append(`<h2>${venues[0].location.city}</h2>`);
