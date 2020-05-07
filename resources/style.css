@@ -130,6 +130,10 @@ button:active {
         box-shadow: 0.5rem 0.5rem 0.5rem #888;
 }
 
+.venueText {
+        height: 45vh;
+}
+
 .picArea {
         text-align: center;
 }
