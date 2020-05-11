@@ -96,7 +96,10 @@ const getTips = async (venueId) => {
 // Render functions
 const renderVenues = async (venues) => {
   $venueDivs.forEach(async ($venue, index) => {
-    const venue = venues[index];
+    let random = Math.floor(Math.random() * venues.length);
+
+    const venue = venues[random];
+    venues.splice(random, 1);
 
     // Get photo
     let photo = await getPhoto(venue.id);
